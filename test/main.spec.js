@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express'); //The require() method is used to load and cache JavaScript modules. So, if you want to load a local, relative JavaScript module into a Node.js application, you can simply use the require() method.
 const path = require('path');
 const Nightmare = require('nightmare');
 const expect = require('chai').expect;
@@ -22,6 +22,7 @@ describe('Change Calculator', function () {
 
     before(() => {
       pageObject = Nightmare().goto(url);
+      
     })
 
     it('should have a H1 with the text "Change Calculator"', () =>
@@ -38,7 +39,7 @@ describe('Change Calculator', function () {
 
     it('should have an input element with an id of "amount-received"', () =>
       pageObject
-        .evaluate(() => document.querySelector('#amount-received'))
+        .evaluate(() => document.querySelector('#amount-received'))// greater than or equal to
         .then(input => expect(input).to.exist)
     );
 
@@ -46,7 +47,7 @@ describe('Change Calculator', function () {
       pageObject
         .evaluate(() => document.querySelector('#calculate-change'))
         .then(input => expect(input).to.exist)
-    );
+    );       
 
     [
       'dollars-output',
